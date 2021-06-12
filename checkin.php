@@ -988,16 +988,16 @@
                                 return;
                             }
                         }
-                        if (array_key_exists('items',$j)){
-                            return;
-                        } elseif (count($j->items)==0) {
-                            return;
+                        if (array_key_exists('items',$j)) {
+                            if (count($j->items) == 0) {
+                                return;
+                            }
+                            $inform = "";
+                            foreach ($j->items as $item) {
+                                $inform .= "{$item->type}共{$item->count}个";
+                            }
+                            report_normal("<font color=\"#90EE90\">获取任务奖励完成:</font> uid:{$player->get_uid()}, 获得物品: {$inform}");
                         }
-                        $inform = "";
-                        foreach ($j->items as $item) {
-                            $inform .= "{$item->type}共{$item->count}个";
-                        }
-                        report_normal("<font color=\"#90EE90\">获取任务奖励完成:</font> uid:{$player->get_uid()}, 获得物品: {$inform}");
                     }
                 }
 
