@@ -1,0 +1,15 @@
+{
+    "content-hash": "6b6d87b043caf5ba90c733b8a2af0c87",
+    "packages": [],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.0.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
