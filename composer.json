@@ -1,0 +1,17 @@
+{
+    "name": "tao0lu/arknights_checkin",
+    "type": "library",
+    "description": "Arknights online checkin",
+    "authors": [
+        {
+            "name": "Tao0Lu",
+            "email": "tao_lumail@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "suggest": {
+        "safety": "To protect your account,do use the SMS/EmailCode login or the Auth login."
+    }
+}
