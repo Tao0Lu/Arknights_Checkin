@@ -11,6 +11,11 @@
 # Arknights_Checkin
 明日方舟在线签到
 
+## 依赖
+PHP 7
+PHP curl
+配置好的 Web 环境
+
 Idea from [InfiniteTsukuyomi/PyAutoGame](https://github.com/InfiniteTsukuyomi/PyAutoGame "InfiniteTsukuyomi/PyAutoGame")
 
 ~~云玩家的日常~~
