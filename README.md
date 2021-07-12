@@ -10,6 +10,7 @@
 
 # Arknights_Checkin
 明日方舟在线签到
+正在迁移成静态网站（咕咕咕
 
 ## 依赖
 PHP 7

@@ -1,102 +1,49 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-<head>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <title>Arknights CheckIn - Console</title>
-    <meta name="keywords" content="Arknights">
-    <meta name="description" content="Arknights Simulator" />
-    <style>
-        body{
-            background-image:url('/bg.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 100vh;
-            margin: 0px;
-            padding: 0px;
-        }
-        .ak-dialog-layer {
-            color: #333333;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
-        }
-        .ak-dialog-layer-title {
-            display: flex;
-            align-items: center;
-            height: 5em;
-            background-color: #333333;
-            color: #eeeeee;
-            font-family: "HgSDKGeometos";
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            line-height: 1.2;
-            padding: 0 2em;
-            border-bottom: 3px solid #37b2ff;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        .ak-dialog-layer-body {
-            flex: auto;
-            min-width: 0;
-            height: 100%;
-            box-sizing: border-box;
-            outline: none !important;
-            border-radius: 0;
-            border: none;
-            border-bottom: 1px solid currentColor;
-            transition: border-bottom-color 0.3s;
-        }
-        div{ display:inline}
-        console {
-            background: #000;
-            border: 3px groove #ccc;
-            color: #ccc;
-            display: block;
-            padding: 10px;
-            width: 99%;
-            overflow:auto;
-            height: 92%;
-        }
-    </style>
-    <script>
-        function getCookie(name)
-        {
-            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-            if(arr=document.cookie.match(reg))
-                return unescape(arr[2]);
-            else
-                return null;
-        }
-        function delCookie(name)
-        {
-            var exp = new Date();
-            exp.setTime(exp.getTime() - 1);
-            var cval=getCookie(name);
-            if(cval!=null)
-                document.cookie= name + "="+cval+";expires="+exp.toGMTString();
-        }
-        function checkAK(){
-            if (document.getElementById('console').innerText.includes('错误或失效的Access Token')){
-                delCookie("LAST_LOGIN_NAME");
-                delCookie("LAST_LOGIN_ACCESS_TOKEN");
-                delCookie("LAST_LOGIN_YOSTAR_LOGIN_TOKEN");
-                delCookie("LAST_LOGIN_SERVER");
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+        <title>Arknights CheckIn - Console</title>
+        <meta name="keywords" content="Arknights">
+        <style>@charset "UTF-8";    @-webkit-keyframes waiting {        0% {            opacity: 0;        }        35%,        75% {            opacity: 1;        }        100% {            opacity: 0;        }    }    @keyframes waiting {        0% {            opacity: 0;        }        35%,        75% {            opacity: 1;        }        100% {            opacity: 0;        }    }    @-webkit-keyframes joltBG {        0% {            opacity: 0.3;        }        22%,        26% {            opacity: 0.2;        }        27%,        45% {            opacity: 0.4;        }        46%,        76% {            opacity: 0.5;        }        76%,        78% {            opacity: 0.05;        }        78% {            opacity: 0.3;        }        100% {            opacity: 0.3;        }    }    @keyframes joltBG {        0% {            opacity: 0.3;        }        22%,        26% {            opacity: 0.2;        }        27%,        45% {            opacity: 0.4;        }        46%,        76% {            opacity: 0.5;        }        76%,        78% {            opacity: 0.05;        }        78% {            opacity: 0.3;        }        100% {            opacity: 0.3;        }    }    .i-has-teh-code {                overflow: hidden;        white-space: pre-wrap;        background: #222233;        color: #fff;		text-shadow:0 0 10px;		letter-spacing: 1px;        margin: 0 auto;        font-size: 19px;        font-family:Verdana, Geneva, Tahoma, sans-serif;        padding: 1em 1em 5em 1em;        line-height: 1.45;        position: relative;    }    .i-has-teh-code::-moz-selection {        color: #222233;        background: #fff;    }    .i-has-teh-code::selection {        color: #222233;        background: #fff;    }    .i-has-teh-code:before {        position: absolute;        pointer-events: none;        top: 0;        right: 0;        bottom: 0;        left: 0;        background-color: black;        content: '';        z-index: 100;        box-shadow: inset 0px 0px 20px 0px rgb(20,20,30);        -webkit-animation-name: joltBG;        animation-name: joltBG;        -webkit-animation-duration: 10000ms;        animation-duration: 10000ms;        -webkit-animation-iteration-count: infinite;        animation-iteration-count: infinite;        -webkit-animation-timing-function: linear;        animation-timing-function: linear;    }    .i-has-teh-code:after {        position: absolute;        pointer-events: none;        bottom: 0em;        left: 0em;        content: '▂';        padding: 1em;        -webkit-animation-name: waiting;        animation-name: waiting;        -webkit-animation-duration: 1200ms;        animation-duration: 1200ms;        -webkit-animation-iteration-count: infinite;        animation-iteration-count: infinite;        -webkit-animation-timing-function: ease-in-out;        animation-timing-function: ease-in-out;    }    body {        background: black;        padding: 0.3em;    }</style>
+        <style>
+            #console{
+                word-wrap:break-word;
             }
-        }
-    </script>
-</head>
-
-<body onload="checkAK()">
-<div>
-    <div class="ak-dialog-layer">
-        <div class="ak-dialog-layer-title">
-            <div id="return_btn" onclick="window.location.href='./index.html'"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" width="32" height="32"><path d="M874.666667 480H224L514.133333 170.666667c12.8-12.8 10.666667-34.133333-2.133333-44.8s-32-10.666667-44.8 2.133333l-341.333333 362.666667c-2.133333 2.133333-4.266667 6.4-6.4 8.533333-2.133333 4.266667-2.133333 6.4-2.133334 10.666667s0 8.533333 2.133334 10.666666c2.133333 4.266667 4.266667 6.4 6.4 8.533334l341.333333 362.666666c6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333 12.8-12.8 12.8-32 2.133333-44.8L224 544H874.666667c17.066667 0 32-14.933333 32-32s-14.933333-32-32-32z" p-id="2931" fill="#cdcdcd"></path></svg></div>
-            <h1 style="margin-left:1em">控制台</h1>
-        </div>
-        <div class="ak-dialog-layer-body">
+        </style>
+        <script>
+            function getCookie(name)
+            {
+                var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+                if(arr=document.cookie.match(reg))
+                    return unescape(arr[2]);
+                else
+                    return null;
+            }
+            function delCookie(name)
+            {
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 1);
+                var cval=getCookie(name);
+                if(cval!=null)
+                    document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+            }
+            function checkAK(){
+                if (document.getElementById('console').innerText.includes('错误或失效的Access Token')){
+                    delCookie("LAST_LOGIN_NAME");
+                    delCookie("LAST_LOGIN_ACCESS_TOKEN");
+                    delCookie("LAST_LOGIN_YOSTAR_LOGIN_TOKEN");
+                    delCookie("LAST_LOGIN_SERVER");
+                }
+            }
+        </script>
+    </head>
+    <body onload="checkAK()">
+        <pre class="i-has-teh-code">
+            <div onclick="window.location.href='./index.html'"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" width="32" height="32"><path d="M874.666667 480H224L514.133333 170.666667c12.8-12.8 10.666667-34.133333-2.133333-44.8s-32-10.666667-44.8 2.133333l-341.333333 362.666667c-2.133333 2.133333-4.266667 6.4-6.4 8.533333-2.133333 4.266667-2.133333 6.4-2.133334 10.666667s0 8.533333 2.133334 10.666666c2.133333 4.266667 4.266667 6.4 6.4 8.533334l341.333333 362.666666c6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333 12.8-12.8 12.8-32 2.133333-44.8L224 544H874.666667c17.066667 0 32-14.933333 32-32s-14.933333-32-32-32z" p-id="2931" fill="#cdcdcd"></path></svg></div>
+            <div align="center">
+                <img src="./prts.png" style="display:block"><br>primitive_rhodesisland_terminal_service
+                <hr color="#fff">
+            </div>
             <console id="console">
                 <?php
                 $HMAC_KEY = '91240f70c09a08a6bc72af1a5c8d4670';
@@ -1205,11 +1152,11 @@
                 function get_random_device_id3(){return md5(get_random_string(12));}
                 function report_normal($str)
                 {
-                    echo "[".time()."] ".$str ."<br>";
+                    echo("[".time()."] ".$str ."<br>");
                 }
                 function report_error($str)
                 {
-                    echo "[".time()."] <font color=\"#FF0000\">".$str."<br></font>";
+                    echo("[".time()."] <font color=\"#FF0000\">".$str."<br></font>");
                     exit("<br>" . "中止程序");
                 }
                 function get_random_string($length)
@@ -1230,8 +1177,6 @@
                 }
                 ?>
             </console>
-        </div>
-    </div>
-</div>
-</body>
+        </pre>
+    </body>
 </html>

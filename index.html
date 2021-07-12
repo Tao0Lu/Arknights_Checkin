@@ -82,7 +82,7 @@
             box-sizing: border-box;
             color: #999999;
             outline: none !important;
-            background-color: #ffffff;
+            background: rgb(20, 20, 30);
             border-radius: 0;
             border: none;
             border-bottom: 1px solid currentColor;
@@ -107,7 +107,8 @@
     </style>
 	<style>
 	body{
-        background-image:url('/bg.png');
+        /* 感谢壁纸api（虽然没有什么用*/
+        background-image:url('https://api.9jojo.cn/acgpic?type=ak');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -144,7 +145,6 @@
 		overflow: hidden; }
 	.tabs [class^="tab"] label,
 	.tabs [class*=" tab"] label {
-		/*     color: black; */
 		cursor: pointer;
 		display: block;
 		font-size: 1.1em;
@@ -154,7 +154,6 @@
 		text-align: center; }
 	.tabs [class^="tab"] [type="radio"],
 	.tabs [class*=" tab"] [type="radio"] {
-		/*     border-bottom: 1px solid rgba(239, 237, 239, 0.5); */
 		cursor: pointer;
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -168,7 +167,6 @@
 	.tabs [class^="tab"] [type="radio"]:hover, .tabs [class^="tab"] [type="radio"]:focus,
 	.tabs [class*=" tab"] [type="radio"]:hover,
 	.tabs [class*=" tab"] [type="radio"]:focus {
-		/*    tab标签选中的颜色标志      */
 		border-bottom: 1px solid #37b2ff;
 	}
 	.tabs [class^="tab"] [type="radio"]:checked,
@@ -376,7 +374,7 @@
     </script>
 </head>
 <body onload="checkCookie()">
-<div class="ak-panel-right" id="login">
+<div id="login">
     <div class="ak-dialog-layer">
         <div class="ak-dialog-layer-title"><h1>明日方舟一键签到</h1></div>
         <div class="ak-dialog-layer-body">
